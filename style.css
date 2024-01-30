@@ -20,7 +20,7 @@ body{
 
 .container{
    width: 100%;
-   margin: 30px auto;
+   margin: 30px auto 10px;
    padding: 20px;
    display: flex;
    flex-direction: column;
@@ -126,5 +126,25 @@ tbody td button:nth-child(2){
    background-color: var(--color-success);
 }
 tbody td button:nth-child(3){
+   background-color: var(--color-error);
+}
+#alert-message{
+   width: 100%;
+   height: 40px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.alert{
+   width: 500px;
+   text-align: center;
+   border-radius: 8px;
+   padding: 5px;
+}
+.alert-success{
+   background-color: var(--color-success);
+}
+.alert-error{
    background-color: var(--color-error);
 }

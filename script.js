@@ -5,6 +5,10 @@ const alertMessage = document.getElementById("alert-message");
 
 const todos = [];
 
+const generateId = () => {
+   return Math.round(Math.random() * Math.random * Math.pow(10, 15)).toString();
+}
+
 const showAlert = (message, type) => {
    alertMessage.innerHTML = "";
    const alert = document.createElement("p")
@@ -14,7 +18,7 @@ const showAlert = (message, type) => {
    alertMessage.append(alert);
 
    setTimeout(() => {
-      alert.style.display="none";
+      alert.style.display = "none";
    }, 2000);
 }
 
@@ -22,17 +26,18 @@ const addHandler = () => {
    const task = taskInput.value;
    const date = dateInput.value;
    const todo = {
-      task: task,
-      date: date,
+      id: generateId(),
+      task,//task : task,
+      date,//date : date,
       compeleted: false
    }
    if (task) {
       todos.push(todo);
       taskInput.value = "";
       dateInput.value = "";
-      showAlert("Todo added successfully","success")
-   }else{
-      showAlert("Please enter a todo!","error")
+      showAlert("Todo added successfully", "success")
+   } else {
+      showAlert("Please enter a todo!", "error")
    }
 }
 

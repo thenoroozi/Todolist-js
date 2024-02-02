@@ -1,7 +1,7 @@
 const taskInput = document.getElementById("task-input");
 const dateInput = document.getElementById("date-input");
 const addButton = document.getElementById("add-button");
-const editButton= document.getElementById("edit-button");
+const editButton = document.getElementById("edit-button");
 const alertMessage = document.getElementById("alert-message");
 const todosBody = document.querySelector("tbody")
 const deleteAll = document.getElementById("delete-all-button");
@@ -102,14 +102,27 @@ const toggleHandler = (id) => {
 }
 
 const editHandler = (id) => {
-   const todo=todos.find(todo => todo.id === id);
-   taskInput.value=todo.task;
-   dateInput.value=todo.date;
-   addButton.style.display="none";
-   editButton.style.display="inline-block";
+   const todo = todos.find(todo => todo.id === id);
+   taskInput.value = todo.task;
+   dateInput.value = todo.date;
+   addButton.style.display = "none";
+   editButton.style.display = "inline-block";
+   editButton.dataset.id=id;
+}
 
+const applyEditHandler = (event) => {
+   const id =event.target.dataset.id;
+   const todo = todos.find(todo => todo.id === id);
+   todo.task= taskInput.value;
+   todo.date= dateInput.value;
+   addButton.style.display = "inline-block";
+   editButton.style.display = "none";
+   saveToLocalStorage();
+   displayTodos();
+   showAlert("Todo edited successfully","success")
 }
 
 window.addEventListener("load", displayTodos)
 addButton.addEventListener("click", addHandler);
 deleteAll.addEventListener("click", deleteAllHandler)
+editButton.addEventListener("click", applyEditHandler)

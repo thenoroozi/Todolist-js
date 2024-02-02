@@ -128,7 +128,12 @@ tbody td {
    text-align: center;
    width: 25%;
 }
-
+tbody tr:last-child td:last-child{
+   border-bottom-right-radius: 10px;
+}
+tbody tr:first-child td:first-child{
+   border-bottom-left-radius: 10px;
+}
 tbody td button {
    padding: 4px 8px;
    margin: 2px 5px;
